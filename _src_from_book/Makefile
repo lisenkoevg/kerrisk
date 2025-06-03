@@ -39,7 +39,7 @@ BUILD_DIRS = ${DIRS}
 # Dummy targets for building and clobbering everything in all subdirectories
 
 all:
-	@ echo ${BUILD_DIRS}
+	@ #echo ${BUILD_DIRS}
 	@ for dir in ${BUILD_DIRS}; do (cd $${dir} 2> /dev/null && ${MAKE}) ; \
 		if test $$? -ne 0; then break; fi; done
 

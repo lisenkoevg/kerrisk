@@ -1,4 +1,4 @@
-DIRS = $(shell find -maxdepth 1 -type d ! -name '.git' ! -name '.' -printf '%f\n')
+DIRS = $(shell find -maxdepth 1 -type d ! -name '.git' ! -name '.' ! -name 'tmp' -printf '%f\n')
 
 # Force rebuild if build from different platform/machine (uname changed)
 uname_current=$(shell uname -n)
