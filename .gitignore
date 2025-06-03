@@ -5,3 +5,4 @@ tmp
 *.o
 *.a
 ename.c.inc
+uname
