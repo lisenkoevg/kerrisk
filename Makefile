@@ -10,16 +10,19 @@ else
 endif
 
 all:
-	@for dir in $(DIRS); do                             \
-      err= ;                                            \
-      cd $${dir};                                       \
-      ${MAKE} ${rebuild} all || err=1 ;              \
-      cd .. ;                                           \
-    done ;                                              \
+	@for dir in $(DIRS); do \
+      err= ; \
+      cd $${dir}; \
+      ${MAKE} ${rebuild} all || err=1 ; \
+      cd .. ; \
+    done ; \
     test -z "$$err" && echo $(uname_current) > uname
 
 clean:
-	@for dir in $(DIRS); do              \
-      cd $${dir}; ${MAKE} clean; cd .. ; \
-    done; \
-    rm -f uname
+	@for dir in $(DIRS); do \
+	  cd $${dir}; \
+	  ${MAKE} clean; \
+	  find -name '*.exe' -printf "delete %P\n" -delete; # clean *.exe under Linux \
+	  cd .. ; \
+	done; \
+	rm -f uname
