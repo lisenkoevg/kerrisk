@@ -40,7 +40,7 @@ BUILD_DIRS = ${DIRS}
 
 all:
 	@ #echo ${BUILD_DIRS}
-	@ for dir in ${BUILD_DIRS}; do (cd $${dir} 2> /dev/null && ${MAKE}) ; \
+	@ for dir in ${BUILD_DIRS}; do test -d $${dir} || continue; (cd $${dir} 2> /dev/null && ${MAKE}) ; \
 		if test $$? -ne 0; then break; fi; done
 
 allgen:
