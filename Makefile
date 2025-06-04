@@ -1,4 +1,4 @@
-DIRS = $(shell find -maxdepth 1 -type d ! -name '.git' ! -name '.' ! -name 'tmp' -printf '%f\n')
+DIRS = $(shell find -maxdepth 1 -type d ! -name '.git' ! -name '.' ! -name 'tmp' -printf '%f\n' | sort)
 
 # Force rebuild if build from different platform/machine (uname changed)
 uname_current=$(shell uname -n)
@@ -13,7 +13,7 @@ all:
 	@for dir in $(DIRS); do \
       err= ; \
       cd $${dir}; \
-      ${MAKE} ${rebuild} all || err=1 ; \
+      ${MAKE} ${rebuild} all || err= ; \
       cd .. ; \
     done ; \
     test -z "$$err" && echo $(uname_current) > uname
