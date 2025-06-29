@@ -1,5 +1,4 @@
 TLPI_DIR = ../_src_from_book
 
 ${TLPI_LIB} :
-	@cd ${TLPI_INCL_DIR}; \
-    ${MAKE}
+	@cd ${TLPI_INCL_DIR}; ${MAKE}

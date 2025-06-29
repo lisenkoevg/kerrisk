@@ -3,7 +3,7 @@
 # Create a new version of the file ename.c.inc by parsing symbolic
 # error names defined in errno.h
 #
-echo '#include <errno.h>' | cpp -dM |
+echo '#include <errno.h>' | cpp -dM | dos2unix |
 sed -n -e '/#define  *E/s/#define  *//p' |sort -k2n |
 awk '
 BEGIN {
